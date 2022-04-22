@@ -10,6 +10,14 @@ public class Interview {
     private LocalDateTime start;
     private Integer durationInMinutes;
 
+    public Interview(UUID uuid, String interviewPartner, String candidate, LocalDateTime start, Integer durationInMinutes) {
+        this.uuid = uuid;
+        this.interviewPartner = interviewPartner;
+        this.candidate = candidate;
+        this.start = start;
+        this.durationInMinutes = durationInMinutes;
+    }
+
     public UUID getUuid() {
         return uuid;
     }
@@ -30,11 +38,23 @@ public class Interview {
         return durationInMinutes;
     }
 
-    public Interview(UUID uuid, String interviewPartner, String candidate, LocalDateTime start, Integer durationInMinutes) {
+    public void setUuid(UUID uuid) {
         this.uuid = uuid;
+    }
+
+    public void setInterviewPartner(String interviewPartner) {
         this.interviewPartner = interviewPartner;
+    }
+
+    public void setCandidate(String candidate) {
         this.candidate = candidate;
+    }
+
+    public void setStart(LocalDateTime start) {
         this.start = start;
+    }
+
+    public void setDurationInMinutes(Integer durationInMinutes) {
         this.durationInMinutes = durationInMinutes;
     }
 }
