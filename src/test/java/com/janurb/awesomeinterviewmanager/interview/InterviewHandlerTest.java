@@ -21,7 +21,7 @@ class InterviewHandlerTest {
         var uuid = UUID.randomUUID();
         List<Interview> expected = List.of(new Interview(uuid, null, null, null, null));
         when(dbMock.findAll()).thenReturn(expected);
-        var sut = new InterviewHandler(dbMock);
+        var sut = new InterviewHandler(dbMock, null);
 
         var actual = sut.loadAllInterviews();
 
@@ -34,7 +34,7 @@ class InterviewHandlerTest {
         var uuid = UUID.randomUUID();
         List<Interview> expected = List.of(new Interview(uuid, null, null, LocalDateTime.now(), null));
         when(dbMock.findAll()).thenReturn(expected);
-        var sut = new InterviewHandler(dbMock);
+        var sut = new InterviewHandler(dbMock, null);
 
         var actual = sut.loadInterviewsFromToday();
 
@@ -46,7 +46,7 @@ class InterviewHandlerTest {
         var dbMock = mock(DatabaseAdapter.class);
         var uuid = UUID.randomUUID();
         when(dbMock.findAll()).thenReturn(List.of(new Interview(uuid, null, null, null, null)));
-        var sut = new InterviewHandler(dbMock);
+        var sut = new InterviewHandler(dbMock, null);
 
         var actual = sut.loadInterviewsFromToday();
 

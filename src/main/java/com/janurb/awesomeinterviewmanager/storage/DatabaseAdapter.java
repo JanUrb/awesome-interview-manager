@@ -22,7 +22,12 @@ public class DatabaseAdapter implements InterviewStorage {
     }
 
     @Override
-    public Optional<Interview> findById() {
-        return Optional.empty();
+    public Optional<Interview> findById(UUID id) {
+        return interviews.stream().filter(interview -> id.equals(interview.getUuid())).findFirst();
+    }
+
+    @Override
+    public Interview save(Interview interview) {
+        return interview;
     }
 }

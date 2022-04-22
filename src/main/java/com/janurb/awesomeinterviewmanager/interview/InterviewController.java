@@ -1,7 +1,6 @@
 package com.janurb.awesomeinterviewmanager.interview;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +23,13 @@ public class InterviewController {
         return interviewHandler.loadInterviewsFromToday();
     }
 
+    @PutMapping("/{id}/partner")
+    public Interview addPartner(@PathVariable("id") String interviewId, @RequestParam("partner") String partner) {
+        return interviewHandler.addPartner(interviewId, partner);
+    }
 
+    @PostMapping("/massreplacement")
+    public List<Interview> replaceAll(@RequestParam("currentPartner") String currentPartner, @RequestParam("replacement") String replacement) {
+        return interviewHandler.replacePartner(currentPartner, replacement);
+    }
 }
